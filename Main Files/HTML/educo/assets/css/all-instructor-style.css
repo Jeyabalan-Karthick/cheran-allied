@@ -6,7 +6,7 @@ Project:Education eLearning
 1. body start
  *******************************************************/
  :root {
-    --primary-color: #1579C5;
+    --primary-color: #124A80;
     --secondary-color: #0A233A; 
     --text-color: #6E8DA0;
     --white-color: #ffffff;
@@ -674,13 +674,13 @@ p {
     align-items: center;
     gap: 20px;
     position: absolute;
-    top: -10px;
+    top: -30px;
     right: 0;
 }
 .el-arrow1 {
     position: absolute;
-    top: -70px;
-    right: 220px;
+    top: -80px;
+    right: 250px;
     animation: wobble-vertically 5s linear infinite;
 }
 @keyframes wobble-vertically {
@@ -820,14 +820,14 @@ p {
 
 /* Counter CSS Start*/
 .el-counter-wrapper {
-    margin-top: -100px;
+    margin-top: -124px;
     position: relative;
 }
 .el-counter-parent{
-    background: var(--secondary-color);
+    background: #124A80;
     box-shadow: 22px 25px 40px 0px #FFFFFF26 inset;
     border-radius: 10px;
-    min-height: 200px;
+    min-height: 100px;
     padding: 20px;
     display: flex;
     justify-content: space-evenly;
@@ -973,13 +973,13 @@ li.nav-item {
     border-radius: 50px;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {    
-    background: var(--primary-color);
+    background: #124A80;
     border-radius: 50px;
     color: var(--white-color);
     box-shadow: 6px 6px 25px 0px #FFFFFF4D inset;    
 }
 .el-tab-content-box {
-    background: linear-gradient(180deg, #FF5359 0%, #F07B0E 100%);
+    background: linear-gradient(180deg, #124A80 0%, #124A80 100%);
     border: 2px solid #FFFFFF4D;
     box-shadow: 15px 20px 60px 0px #1579C505;
     box-shadow: 0px 0px 30px 0px #FFFFFF4D inset;
@@ -990,12 +990,12 @@ li.nav-item {
     min-height: 515px;
 }
 .el-tab-content-box2{
-    background: linear-gradient(180deg, #6F01FC 0%, #C400D6 100%);
+    background: linear-gradient(180deg, #124A80 0%, #124A80 100%);
     box-shadow: 0px 0px 50px 0px #D8B1FF66 inset;
     box-shadow: 15px 20px 60px 0px #1579C505;
 }
 .el-tab-content-box3{
-    background: linear-gradient(180deg, #255BFF 0%, #00B4E1 100%);
+    background: linear-gradient(180deg, #124A80 0%, #124A80 100%);
     box-shadow: 0px 0px 50px 0px #B1E8FF66 inset;
     box-shadow: 15px 20px 60px 0px #1579C505;
 }
@@ -2955,14 +2955,16 @@ h3.checkout-heading {
     .el-nav-menu {
         position: fixed;
         top: 0;
-        left: -300px;
-        width: 300px;
+        left: -380vw;
+        width: 380vw;
         background: #fff;
         box-shadow: 0 0 30px 0 rgba(0,0,0,0.15);
         height: 100%;
         padding: 30px 0 0 30px;
         transition: all 0.3s;
         z-index: 999;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
     .el-nav-menu > ul {     
         align-items: baseline;
@@ -2970,10 +2972,27 @@ h3.checkout-heading {
         flex-direction: column;
     }
     .el-nav-menu > ul > li > a {
-        padding: 0px 0;
+        padding: 5px 0;
+        white-space: normal;
+        word-break: break-word;
     }
     .el-header-right.el_menu_open .el-nav-menu{                
         left: 0;        
+    }
+    .el-header-right.el_menu_open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
     .el_toggle_btn {
         display: block;
@@ -2999,21 +3018,47 @@ h3.checkout-heading {
         display: none;
         opacity: 1;
         visibility: visible;
-        position: relative;
-        top: 12px;
+        position: static;
+        top: auto;
+        left: auto;
         transform: none;
         transition: none;
         box-shadow: none;
-        margin-left: 25px;
+        margin: 0 0 0 25px;
         padding: 15px 0;
+        width: 100%;
+        background: transparent;
+        border-radius: 0;
+        z-index: auto;
     }
     ul.el-sub-menu.el-submenu-open {        
         opacity: 1;
         visibility: visible;
+        display: block;
     } 
     .el-nav-menu > ul > li:hover .el-sub-menu{
         transform: none;
-    }       
+    }
+    .el-nav-menu > ul > li.el-has-menu > a {
+        position: relative;
+    }
+    .el-nav-menu > ul > li.el-has-menu > a svg {
+        transition: transform 0.3s ease;
+    }
+    .el-nav-menu > ul > li.el-has-menu.el-submenu-open > a svg {
+        transform: rotate(180deg);
+    }
+    .el-sub-menu li a {
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+        font-size: 14px;
+        color: var(--text-color) !important;
+        white-space: normal;
+        word-break: break-word;
+    }
+    .el-sub-menu li:last-child a {
+        border-bottom: none;
+    }
     /* Sub menu CSS */
     
     .el-header-search {     
