@@ -1652,8 +1652,8 @@ li.nav-item {
     background: linear-gradient(90deg, #A954FF -9.26%, #EC5CFF 110.19%);
 }
 .el-work-img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     background: #EFF4F8;
     border-radius: 50%;
     display: flex;
@@ -1661,6 +1661,13 @@ li.nav-item {
     align-items: center;
     margin: 15px auto 25px auto;
     transition: all 0.3s;
+}
+
+@media(max-width:1199px){
+    .el-work-img{
+        width: 50px;
+        height: 50px;
+    }
 }
 .el-work-content > h4{
     font-size: 20px;
